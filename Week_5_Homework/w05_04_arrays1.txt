@@ -1,0 +1,18 @@
+float[] yo = new float[100];
+
+void setup() {
+  size(600, 600);
+  noStroke();
+  for (int i = 0; i < 100; i++)
+  {
+    yo[i] = map(i, 0, 100, 0, width);
+  }
+}
+
+void draw() {
+  background(150);
+  for (int i = 0; i < 5; i++)
+  {
+  ellipse(yo[i], height/2, 70, 70);
+  }
+}
