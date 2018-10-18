@@ -6,6 +6,8 @@
 // to make sure that once a color turns white, it returns 
 // back to black as seen in the example gif.
 
+int size = 50;
+
 int gridW = 10;
 int gridH = 10;
 float[][] greyColors = new float[gridW][gridH];
@@ -20,11 +22,11 @@ void setup() {
 }
 
 void draw() {
-  for (int i = 0; i < gridW; i++) {
-    for (int j = 0; j < gridH; j++) {
+  for (int i = 0; i < gridW; i+=size) {
+    for (int j = 0; j < gridH; j+=size) {
       greyColors[i][j]+=1;
       fill(greyColors[i][j]);
-      rect(0, 0, width/gridW, height/gridH);
+      rect(i, j, size+=1, size+=1);
     }
   }
 }
