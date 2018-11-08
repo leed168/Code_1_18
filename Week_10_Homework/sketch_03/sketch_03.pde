@@ -43,7 +43,8 @@ class Brushstroke {
   float vx, vy;
   float siz;
   float lifetime = 10;
-  float a, b;
+  //float a, b;
+  color c;
 
   Brushstroke(float x, float y) {
     this.x = x;
@@ -51,8 +52,10 @@ class Brushstroke {
     vx = random(-8, 8);
     vy = random(-8, 8);
     siz = random(30, 60);
-    a = random(0, 255);
-    b = random(0,255);
+    //a = random(0, 255);
+    //b = random(0,255);
+    c = color (random(255), random(255), random(255));
+
   }
 
   void update() {
@@ -61,7 +64,7 @@ class Brushstroke {
   }
 
   void display() {
-    fill(a, b, 127);
+    fill(c);
     noStroke();
     ellipse(x, y, siz, siz);
   }
