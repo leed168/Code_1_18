@@ -21,8 +21,6 @@ PImage img;
 
 import processing.pdf.*;
 
-boolean saveOneFrame = false;
-
 void setup() {
   size(785, 785);
   img = loadImage("doggo.jpeg");
@@ -30,31 +28,29 @@ void setup() {
   background(100);
   noStroke();
     frameRate(999);
+    beginRecord(PDF, "everything.pdf");
 }
 
 void draw() {
-   if(saveOneFrame == true) {
-    beginRecord(PDF, "10101010.pdf"); 
-  }
   
   int x = int(random(width));
   int y = int(random(height));
   color c = img.get(x, y);
   fill(c);
-  rect(x,y,20,20);
+  stroke(255);
+  rect(x,y,10,10);
   
   int a = int(random(width));
   int b = int(random(height));
-  color t = img.get(b, a);
+  color t = img.get(a, b);
   fill(t);
   ellipse(a,b,10,10);
 
-  if(saveOneFrame == true) {
-    endRecord();
-    saveOneFrame = false; 
-  }
 }
 
-void mousePressed() {
-  saveOneFrame = true; 
+void keyPressed() {
+  if (key == 'q') {
+    endRecord();
+    exit();
+  }
 }
